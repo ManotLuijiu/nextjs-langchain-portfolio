@@ -21,6 +21,8 @@ export default function AIChatBox({ open, onClose }: AIChatBoxProps) {
     error,
   } = useChat();
 
+  console.log("isLoading", isLoading);
+
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 

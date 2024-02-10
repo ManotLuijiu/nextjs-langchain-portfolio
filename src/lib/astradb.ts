@@ -29,6 +29,17 @@ export async function getVectorStore() {
   );
 }
 
+// export async function getEmbeddingsCollection() {
+//   return new AstraDB(token, endpoint).collection(collection);
+// }
+
 export async function getEmbeddingsCollection() {
-  return new AstraDB(token, endpoint).collection(collection);
+  const db = new AstraDB(token, endpoint);
+  console.log('astradb_db', db);
+  // await db.createCollection(collection)
+  const cl = await db.collection(collection);
+  console.log('collection', cl);
+  return cl;
 }
+
+getEmbeddingsCollection().catch(console.error)
